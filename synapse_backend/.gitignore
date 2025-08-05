@@ -1,0 +1,15 @@
+# Python
+_pycache_/ 
+*.pyc 
+venv/ 
+.env  
+
+# Uploads
+uploads/ 
+
+# Database
+synapse.db 
+
+chroma_db/ 
+
+gcloud-credentials.json

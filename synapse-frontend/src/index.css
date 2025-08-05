@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+/* 2. Projenin genel arka plan rengini ve fontunu ayarlıyoruz. */
+body {
+  background-color: #020617; /* bg-slate-950 */
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* 3. Sohbet arayüzü için "yazıyor..." animasyonu (Bu kısmı koruyoruz) */
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #9E9EA1;
+  border-radius: 50%;
+  display: inline-block;
+  animation: apear-then-fade 1.2s infinite ease-in-out;
+}
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes apear-then-fade {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* 4. Yeni fütüristik tasarım için özel efektler ve animasyonlar */
+.glow-effect {
+  box-shadow: 0 0 5px theme('colors.sky.500'), 
+              0 0 10px theme('colors.sky.500'), 
+              0 0 20px theme('colors.sky.500'), 
+              0 0 40px theme('colors.sky.600');
+}
+
+.hero-bg {
+  background-color: #020617;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(14, 165, 233, 0.2) 2%, transparent 0%), 
+    radial-gradient(circle at 75px 75px, rgba(14, 165, 233, 0.2) 2%, transparent 0%);
+  background-size: 100px 100px;
+  animation: pulse-bg 5s infinite;
+}
+
+@keyframes pulse-bg {
+  0% { background-color: #020617; }
+  50% { background-color: #08102b; }
+  100% { background-color: #020617; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* 5. GÜNCELLENMİŞ ESTETİK KAYDIRMA ÇUBUĞU STİLLERİ */
+/* Webkit tabanlı tarayıcılar için (Chrome, Safari, Edge) */
+
+/* Kaydırma çubuğunun genel genişliği ve yüksekliği */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Kaydırma çubuğunun arka planı (yol) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Arka planı tamamen şeffaf yapıyoruz */
+}
+
+/* Kaydırma çubuğunun kendisi (sürüklenen kısım) */
+::-webkit-scrollbar-thumb {
+  background-color: #334155; /* slate-700 */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Kenar boşluğu efekti için */
+  background-clip: content-box;
+}
+
+/* Üzerine gelindiğinde kaydırma çubuğunun rengi */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #475569; /* slate-600 */
+}
